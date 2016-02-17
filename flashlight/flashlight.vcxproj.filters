@@ -7,15 +7,9 @@
     <None Include="freeglut.dll">
       <Filter>libs</Filter>
     </None>
-    <None Include="glew64.dll">
-      <Filter>libs</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Library Include="freeglut.lib">
-      <Filter>libs</Filter>
-    </Library>
-    <Library Include="glew64.lib">
       <Filter>libs</Filter>
     </Library>
   </ItemGroup>
@@ -23,5 +17,12 @@
     <Filter Include="libs">
       <UniqueIdentifier>{05179b3c-64dd-45a5-a53b-b1bfe3e528fa}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="interactions.h" />
+    <ClInclude Include="kernel.h" />
   </ItemGroup>
 </Project>

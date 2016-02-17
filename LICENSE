@@ -1,5 +1,8 @@
-All source code in this repository is licensed under MIT license except
-the CImg Library which is licensed under the CeCILL-C license.
+All source code in this repository is licensed under MIT license except:
+* the CImg Library which is licensed under the CeCILL-C license.
+* FreeGLUT binaries and code are licensed under the FreeGLUT license ("freeglut license.txt"). Source is available at http://freeglut.sourceforge.net/
+* GLUI binaries and code are licensed under the ZLIB License ("GLUI License.txt"). Source is available at http://glui.sourceforge.net/
+* GLEW binaries and code are licensed under the license in "GLEW License.txt"
 
 The MIT License (MIT)
 

@@ -18,7 +18,6 @@
 *.lo
 
 # Shared objects (inc. Windows DLLs)
-*.dll
 *.so
 *.so.*
 *.dylib
@@ -49,7 +48,6 @@
 # Compiled Dynamic libraries
 *.so
 *.dylib
-*.dll
 
 # Fortran module files
 *.mod
@@ -58,7 +56,6 @@
 *.lai
 *.la
 *.a
-*.lib
 
 # Executables
 *.exe
