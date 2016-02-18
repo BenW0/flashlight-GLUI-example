@@ -2,14 +2,15 @@ UNAME_S := $(shell uname)
 
 ifeq ($(UNAME_S), Darwin)
 	LDFLAGS = -Xlinker -framework,OpenGL -Xlinker -framework,GLUT
+	LDFLAGS += -Llib -lglui_osx
 else
-	LDFLAGS += -L/usr/local/cuda/samples/common/lib/linux/x86_64
-	LDFLAGS += -lglut -lGL -lGLU -lGLEW
+	LDFLAGS += -L/usr/local/cuda/samples/common/lib/linux/x86_64 -Llib
+	LDFLAGS += -lglut -lGL -lGLU -lGLEW -lglui
 endif
 
 NVCC = /usr/local/cuda/bin/nvcc
 NVCC_FLAGS = -g -G -Xcompiler "-Wall -Wno-deprecated-declarations"
-INC = -I/usr/local/cuda/samples/common/inc
+INC = -I/usr/local/cuda/samples/common/inc -Iinclude
 
 all: main.exe
 

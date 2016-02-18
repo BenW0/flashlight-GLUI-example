@@ -12,8 +12,6 @@
 *.pch
 
 # Libraries
-*.lib
-*.a
 *.la
 *.lo
 
@@ -55,7 +53,6 @@
 # Compiled Static libraries
 *.lai
 *.la
-*.a
 
 # Executables
 *.exe
