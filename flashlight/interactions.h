@@ -1,8 +1,6 @@
 #ifndef INTERACTIONS_H
 #define INTERACTIONS_H
 
-#include <GL/glui.h>
-
 // Include GLUI header file, with special magic code:
 #define GLUI_NO_LIB_PRAGMA
 #include <GL/glui.h>
