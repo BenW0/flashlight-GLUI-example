@@ -1,8 +1,10 @@
 This repository contains the cuda for engineers template code for the flashlight app, modified with a simple GLUI front end.
 
-To run, you will need the CUDA Toolkit, FreeGLUT (http://www.transmissionzero.co.uk/software/freeglut-devel/), and GLUI (http://glui.sourceforge.net/)
+To run, you will need the NVIDIA CUDA Toolkit and Visual Studio 2013. Compilation on linux and OS X is also possible with the provided makefile.
 
-I built GLUI from source using the first change suggested [here][https://masdel.wordpress.com/2010/06/13/installing-glui-using-vc-on-windows/]
+I built GLUI from source using the first change suggested [here][https://masdel.wordpress.com/2010/06/13/installing-glui-using-vc-on-windows/] using Visual Studio 2013.
+
+Binaries, libraries, and headers for FreeGLUT (http://www.transmissionzero.co.uk/software/freeglut-devel/), and GLUI (http://glui.sourceforge.net/) are also included for your convenience. Those files are covered by the license agreements of their respective projects.
 
 Tweaks by Ben Weiss; original source by Duane Storti and Mete Yyurtoglu.
 
