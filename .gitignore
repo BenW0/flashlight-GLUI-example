@@ -348,3 +348,15 @@ Temporary Items
 
 .dropbox
 *Icon*
+
+# A few libraries we explicitly want to include...
+!libs/freeglut/bin
+!libs/freeglut/bin/x64
+!libs/freeglut/lib/x64
+!libs/glew/bin
+!libs/glew/bin/Release
+!libs/glew/bin/Release/Win32/*.dll
+!libs/glew/bin/Release/x64/*.dll
+!libs/glew/lib/Release
+!libs/glew/lib/Release/Win32
+!libs/glew/lib/Release/x64

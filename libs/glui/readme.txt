@@ -10,9 +10,7 @@ in your project. It should be able to find the
 compilation results and include them in your new
 project.
 
-Note that the source in glui-2.36 seems to differ
+Note that the source in glui-2.36 differs
 slightly from the version on SourceForge. Specifically,
-there is a block of template code moved outside a class
-in src/include/GL/glui.h which keeps MSVC happy. I didn
-not make this change; I must have found a different source
-a few years ago...
+changes suggested [here][https://masdel.wordpress.com/2010/06/13/installing-glui-using-vc-on-windows/] 
+have been made.
