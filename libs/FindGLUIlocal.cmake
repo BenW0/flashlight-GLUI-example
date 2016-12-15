@@ -104,6 +104,7 @@ if(OPENGL_FOUND AND GLUT_FOUND)
 			NAMES
 			GLUI
 			glui
+			glui32
 			PATHS
 			${GLUI_ROOT_PATHS}
 			/usr/openwin/lib
