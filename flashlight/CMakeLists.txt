@@ -1,5 +1,6 @@
 ##########################################################
-############### Template CUDA CMakeLists #################
+#               Template CUDA CMakeLists                 #
+#               with GLEW, GLUT, and GLUI                #
 ##########################################################
 #                                                        #
 # Use this CMakeLists file to create build environments  #
