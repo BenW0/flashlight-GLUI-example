@@ -1,6 +1,16 @@
-
-
 ##########################################################
+############### Template CUDA CMakeLists #################
+##########################################################
+#                                                        #
+# Use this CMakeLists file to create build environments  #
+# for your C/C++ and CUDA project.                       #
+#                                                        #
+# Put your source in the subfolder ./src and run CMake   #
+# to configure the project for your platform. The process#
+# will use the ../libs folder, which contains source and #
+# binaries for FreeGLUT and GLEW, as well as some CMake  #
+# scripts.                                               #
+#                                                        #
 # If using Makefiles, be sure to set CMAKE_BUILD_TYPE to # 
 # select different build configurations.                 #
 # Possible values:                                       #
