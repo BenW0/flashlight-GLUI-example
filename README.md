@@ -30,9 +30,9 @@ install cmake - `sudo apt-get install cmake` (already on Ubuntu) and `sudo apt-g
 `sudo apt-get install libglew1.13`
 
 ###Code
-switch to the directory you want to work in
-clone the repo - `git clone 
-switch to cmake_build branch
+* switch to the directory you want to work in
+* clone this repository - `git clone https://github.com/BenW0/flashlight-GLUI-example.git`
+* switch to cmake_build branch - `git checkout cmake_build`
 
 ###GLUI
 * configure the glui library - `cd libs/glui && mkdir bin && ccmake ../`
