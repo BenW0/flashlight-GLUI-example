@@ -15,13 +15,17 @@ Next, create a build environment for flashlight using CMake (flashlight/CMakeLis
 
 ###Build Tools
 install git - `sudo apt-get install git` (already on Ubuntu)
-install cmake - `sudo apt-get install cmake` (already on Ubuntu) and sudo apt-get install `cmake-curses-gui`
+install cmake - `sudo apt-get install cmake` (already on Ubuntu) and `sudo apt-get install cmake-curses-gui`
 
 ###Libraries
 `sudo apt-get install freeglut3-dev`
+
 `sudo apt-get install libglew-dev`
+
 `sudo apt-get install libxi-dev`
+
 `sudo apt-get install libxmu-dev`
+
 `sudo apt-get install libglew1.13`
 
 ###Code
@@ -30,11 +34,11 @@ clone the repo - `git clone
 switch to cmake_build branch
 
 ###GLUI
-*configure the glui library - cd libs/glui && mkdir bin && ccmake ../
+*configure the glui library - `cd libs/glui && mkdir bin && ccmake ../`
 **Press "c" to configure. Hopefully no errors occur
-**Press "Enter" on the CMAKE_BUILD_TYPE field and type Release to specify a release build
+**Press "Enter" on the `CMAKE_BUILD_TYPE` field and type Release to specify a release build
 **Press "g" to generate the build file
-*Build the project - `make`. Afterwards there should be a libglui32.a file in libs/glui/bin
+*Build the project - `make`. Afterwards there should be a `libglui32.a` file in libs/glui/bin
 
 ###Flashlight
 cd flashlight-GLUI-example/flashlight
