@@ -79,6 +79,11 @@ file(GLOB SOURCES
 # Create the executable from all available sources
 cuda_add_executable(${EXE_NAME} ${SOURCES})
 
+# Set the startup project for Visual Studio
+if(NOT CMAKE_VERSION VERSION_LESS "3.6.0")
+  set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${EXE_NAME})
+endif()
+
 # link with shared common headers
 cuda_include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../include)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../include)
