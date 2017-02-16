@@ -30,6 +30,7 @@ project(flashlight_glui)
 set(EXE_NAME flashlight_glui)
 
 ## Some compilation options you may want to change
+set(GLUI_DONT_BUILD FALSE)    # set to TRUE to disable automatic building of GLUI
 set(CUDA_COMPUTE_CAPABILITY "30") 
 		# Set the compute capability to 3.0 (valid values are 20, 30, 32, 35, 37, 50, 52, 53, 60, 61, 62)
 set(CUDA_FAST_MATH TRUE)  # GPU code only (does not affect CPU)

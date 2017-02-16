@@ -4,13 +4,16 @@ cmake_minimum_required(VERSION 2.8)
 
 # Set the name of your project. Change the next two lines to match your current project name.
 project(GLUI)
-set(LIB_NAME glui32)
+set(LIB_NAME glui)
 
 set(GLUI_SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/glui-2.36")
 
 # Check for 32-bit build...user may not want this
 if(WIN32 AND CMAKE_SIZEOF_VOID_P EQUAL 4)
 	message(WARNING "You are creating a 32-bit project. You probably want x64 on Windows. Just FYI...")
+  set(LIB_NAME ${LIB_NAME}32)
+else()
+  set(LIB_NAME ${LIB_NAME}64)
 endif()
 
 # Check that the destination directory is ./bin...
@@ -19,7 +22,7 @@ if(NOT CMAKE_BINARY_DIR STREQUAL BINARY_DIR_SHOULDBE)
 	message(WARNING "Build directory is not ./bin. This will keep FindGsLUI from working in other projects.")
 endif()
 
-# Include some scripts we will need to configure CUDA and find local copies of GLUT and GLUI
+# Include some scripts we will need to configure CUDA and find local copies of GLUT
 set(MY_CMAKE_SCRIPTS ${CMAKE_CURRENT_SOURCE_DIR}/..)
 list(APPEND CMAKE_MODULE_PATH "${MY_CMAKE_SCRIPTS}")
 

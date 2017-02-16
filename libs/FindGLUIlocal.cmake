@@ -11,6 +11,8 @@
 # Useful configuration variables you might want to add to your cache:
 #   GLUI_ROOT_DIR - A directory prefix to search
 #                  (usually a path that contains include/ as a subdirectory)
+#   GLUI_DONT_BUILD - Disables trying to build the library from local
+#                     source if present and not already built.
 #
 # Original Author:
 # 2009-2010 Ryan Pavlik <rpavlik@iastate.edu> <abiryan@ryand.net>
@@ -40,9 +42,67 @@ else()
 	endif()
 endif()
 
-set(GLUI_ROOT_PATHS ${GLUI_ROOT_DIR} ${CMAKE_CURRENT_LIST_DIR}/glui/bin)
+set(GLUI_LOCAL_ROOT ${CMAKE_CURRENT_LIST_DIR}/glui)
+set(GLUI_ROOT_PATHS ${GLUI_ROOT_DIR} ${GLUI_LOCAL_ROOT}/bin)
 
 if(OPENGL_FOUND AND GLUT_FOUND)
+  # Check to see if the glui library is hosted locally and needs to be built
+  if(NOT GLUI_DONT_BUILD AND EXISTS ${GLUI_LOCAL_ROOT}/CMakeLists.txt)
+    # Go generate and build the local copy of the code
+    # This is probably against lots of CMake rules, but I'm trying to make_directory
+    # things as easy as possible for my users...
+    message(STATUS "Calling CMake on local GLUI library...")
+    if(WIN32)
+      execute_process(
+          COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" ../
+          WORKING_DIRECTORY ${GLUI_LOCAL_ROOT}/bin)
+      message(STATUS "Compiling GLUI Debug library...")
+      execute_process(
+          COMMAND ${CMAKE_COMMAND} --build . --config DEBUG
+          WORKING_DIRECTORY ${GLUI_LOCAL_ROOT}/bin
+          OUTPUT_FILE ${GLUI_LOCAL_ROOT}/bin/debug_build.log
+          ERROR_FILE ${GLUI_LOCAL_ROOT}/bin/debug_build.log
+          RESULT_VARIABLE GLUI_DEBUG_BUILD_RESULT)
+      if(GLUI_DEBUG_BUILD_RESULT EQUAL 0)
+        message(STATUS "Compiling GLUI Debug library succeded.")
+      else()
+        message(WARNING "Compiling GLUI Debug library failed. See ${GLUI_LOCAL_ROOT}/bin/debug_build.log for details")
+      endif()
+      
+      message(STATUS "Compiling GLUI Release library...")
+      execute_process(
+          COMMAND ${CMAKE_COMMAND} --build . --config RELEASE
+          WORKING_DIRECTORY ${GLUI_LOCAL_ROOT}/bin
+          OUTPUT_FILE ${GLUI_LOCAL_ROOT}/bin/release_build.log
+          ERROR_FILE ${GLUI_LOCAL_ROOT}/bin/release_build.log
+          RESULT_VARIABLE GLUI_RELEASE_BUILD_RESULT)
+      if(GLUI_RELEASE_BUILD_RESULT EQUAL 0)
+        message(STATUS "Compiling GLUI Release library succeded.")
+      else()
+        message(WARNING "Compiling GLUI Release library failed. See ${GLUI_LOCAL_ROOT}/bin/release_build.log for details")
+      endif()
+    else()
+      #TODO: Test this section!
+      execute_process(
+          COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" ../
+          WORKING_DIRECTORY ${GLUI_LOCAL_ROOT}/bin)
+      
+      message(STATUS "Compiling GLUI Release library...")
+      execute_process(
+          COMMAND ${CMAKE_COMMAND} --build . --config RELEASE
+          WORKING_DIRECTORY ${GLUI_LOCAL_ROOT}/bin
+          OUTPUT_FILE ${GLUI_LOCAL_ROOT}/bin/release_build.log
+          ERROR_FILE ${GLUI_LOCAL_ROOT}/bin/release_build.log
+          RESULT_VARIABLE GLUI_RELEASE_BUILD_RESULT)
+      if(GLUI_RELEASE_BUILD_RESULT EQUAL 0)
+        message(STATUS "Compiling GLUI Release library succeded.")
+      else()
+        message(WARNING "Compiling GLUI Release library failed. See ${GLUI_LOCAL_ROOT}/bin/release_build.log for details")
+      endif()
+    endif()
+  endif()
+  
+  
 	if(WIN32)
 		find_path(GLUI_INCLUDE_DIR
 			NAMES
