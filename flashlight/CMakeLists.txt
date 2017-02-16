@@ -65,16 +65,16 @@ endif()
 # use the local copy, if it has been compiled.
 find_package(GLUIlocal REQUIRED)
 
-## Collect all the sources in the src folder.
+## Collect all the sources in the current folder.
 # Note that header files don't *need* to be included
 # here, but if we don't, they will not show up in
 # the Visual Studio explorer.
 file(GLOB SOURCES 
-  "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cu"
-  "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
-  "${CMAKE_CURRENT_SOURCE_DIR}/src/*.c"
-  "${CMAKE_CURRENT_SOURCE_DIR}/src/*.h"
-  "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cuh")
+  "${CMAKE_CURRENT_SOURCE_DIR}/*.cu"
+  "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/*.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/*.h"
+  "${CMAKE_CURRENT_SOURCE_DIR}/*.cuh")
 
 # Create the executable from all available sources
 cuda_add_executable(${EXE_NAME} ${SOURCES})
