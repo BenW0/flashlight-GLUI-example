@@ -64,7 +64,7 @@ endif()
 
 # Go find the GLUI library. If it can't find a system install it will try to
 # use the local copy, if it has been compiled.
-find_package(GLUIlocal REQUIRED)
+#find_package(GLUIlocal REQUIRED)
 
 ## Collect all the sources in the current folder.
 # Note that header files don't *need* to be included
@@ -103,8 +103,10 @@ include_directories(${GLEW_INCLUDE_DIRS})
 target_link_libraries(${EXE_NAME} ${GLEW_LIBRARIES})
 
 # link with GLUI
-include_directories(${GLUI_INCLUDE_DIRS})
-target_link_libraries(${EXE_NAME} ${GLUI_LIBRARIES})
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(${EXE_NAME} 
+      debug ${CMAKE_CURRENT_SOURCE_DIR}/libs/glui64d.lib
+      optimized ${CMAKE_CURRENT_SOURCE_DIR}/libs/glui64.lib)
 
 # Copy the dynamic libraries to the compilation folder as a post-build step (Windows-only in case we are using local libraries)
 if(WIN32)
